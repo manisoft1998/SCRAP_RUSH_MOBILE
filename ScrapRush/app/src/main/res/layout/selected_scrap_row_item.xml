@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp">
+
+    <View
+        android:id="@+id/bullet_view"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:background="@drawable/bullet_view" />
+
+    <TextView
+        android:id="@+id/tv_scrap_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@id/bullet_view"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_regular"
+        android:singleLine="true"
+        android:text="Plastic"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/subtitle"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_scrap_qty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@id/tv_scrap_name"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_regular"
+        android:singleLine="true"
+        android:text="......................."
+        android:textColor="@color/primary"
+        android:textSize="@dimen/body" />
+
+    <TextView
+        android:id="@+id/tv_scrap_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_toEndOf="@id/tv_scrap_qty"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto_regular"
+        android:singleLine="true"
+        android:text="100Rs/KG"
+        android:textColor="@color/primary"
+        android:textSize="@dimen/body" />
+</RelativeLayout>

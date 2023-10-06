@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "945170905689",
+    "project_id": "scraprush-a9bd7",
+    "storage_bucket": "scraprush-a9bd7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945170905689:android:43b692e90a5189827d4f48",
+        "android_client_info": {
+          "package_name": "com.manisoft.scraprush"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLcE6MzdvJ4lNjTJ60llTFgUqmzZbQbEI"
+        },
+        {
+          "current_key": "AIzaSyCA9ZR1itYfZLbC0_GrmNhiOLgHA5UeRnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:945170905689:android:66380831ae2c8eee7d4f48",
+        "android_client_info": {
+          "package_name": "com.manisoft.scraprushapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLcE6MzdvJ4lNjTJ60llTFgUqmzZbQbEI"
+        },
+        {
+          "current_key": "AIzaSyCA9ZR1itYfZLbC0_GrmNhiOLgHA5UeRnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
