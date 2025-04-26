@@ -3,8 +3,12 @@ package com.manisoft.scraprushapp.mvvm.di
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
+import com.manisoft.scraprushapp.mvvm.repositories.AddressRepository
+import com.manisoft.scraprushapp.mvvm.repositories.AdminRepository
 import com.manisoft.scraprushapp.mvvm.repositories.LoginRepository
 import com.manisoft.scraprushapp.mvvm.repositories.ScrapRepository
+import com.manisoft.scraprushapp.mvvm.viewmodel.AddressViewModel
+import com.manisoft.scraprushapp.mvvm.viewmodel.AdminViewModel
 import com.manisoft.scraprushapp.mvvm.viewmodel.LoginViewModel
 import com.manisoft.scraprushapp.mvvm.viewmodel.ScrapViewModel
 import com.manisoft.scraprushapp.utils.Constants
@@ -26,7 +30,12 @@ val viewModelModule = module {
     viewModel {
         ScrapViewModel(get())
     }
-
+    viewModel {
+        AddressViewModel(get())
+    }
+    viewModel {
+        AdminViewModel(get())
+    }
 }
 
 val repositoryModule = module {
@@ -35,6 +44,12 @@ val repositoryModule = module {
     }
     single {
         ScrapRepository(get())
+    }
+    single {
+        AddressRepository(get())
+    }
+    single {
+        AdminRepository(get())
     }
 }
 

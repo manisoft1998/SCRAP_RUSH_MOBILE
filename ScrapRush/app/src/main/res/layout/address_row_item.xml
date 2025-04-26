@@ -45,7 +45,7 @@
             android:fontFamily="@font/roboto_regular"
             android:maxLines="3"
             android:textAlignment="textStart"
-            android:textColor="@color/light_font"
+            android:textColor="@color/black_font"
             android:textSize="@dimen/_11ssp"
             android:textStyle="bold" />
 
@@ -54,7 +54,7 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_baseline_more_vert_24"
+            android:src="@drawable/ic_baseline_delete_outline_24"
             android:visibility="visible" />
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -16,6 +16,44 @@
     </style>
 
     <style name="BottomNavThem" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimary">@color/black</item>
+        <!-- Use a custom style for the text color -->
+        <item name="android:textColor">@color/black</item>
+        <!-- Use a custom style for the icon color -->
+        <item name="itemIconTint">@color/black</item>
+    </style>
+
+    <style name="BottomSheetDialogTheme" parent="BaseBottomSheetDialog" />
+
+    <style name="BaseBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/BottomSheet</item>
+    </style>
+
+    <style name="BottomSheet" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/arch_shape_up</item>
+    </style>
+
+
+    <style name="AutoComplete" parent="Base.Widget.AppCompat.EditText">
+        <item name="android:maxLines">1</item>
+        <item name="android:backgroundTint">@color/black</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/_10ssp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:paddingStart">15dp</item>
+    </style>
+
+    <!--material filter chip-->
+
+    <style name="MaterialChipStyle" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textColor">@color/black_font</item>
+        <item name="android:textSize">9sp</item>
+        <item name="chipBackgroundColor">@color/white</item>
+        <item name="chipStrokeColor">@color/blue_tick</item>
+        <item name="chipStrokeWidth">1.5dp</item>
     </style>
 </resources>

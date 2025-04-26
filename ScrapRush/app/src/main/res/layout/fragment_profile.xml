@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginStart="15dp"
@@ -48,7 +49,7 @@
                 android:id="@+id/iv_user_profile_image"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:src="@drawable/profile_pic"
+                android:src="@drawable/user_image_placeholder"
                 app:civ_border_color="@color/white"
                 app:civ_border_width="2dp" />
 
@@ -69,18 +70,19 @@
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_regular"
                 android:maxLines="1"
-                android:text="David Clerisseau"
+                android:text="Username"
                 android:textColor="@color/primary"
                 android:textSize="@dimen/subtitle"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_user_mail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:fontFamily="@font/roboto_regular"
                 android:maxLines="1"
-                android:text="mani@gmail.com"
+                android:text="user@gmail.com"
                 android:textSize="@dimen/body" />
         </LinearLayout>
 
@@ -183,7 +185,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -477,7 +480,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="0dp"

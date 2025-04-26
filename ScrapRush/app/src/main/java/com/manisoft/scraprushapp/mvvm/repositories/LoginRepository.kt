@@ -7,7 +7,7 @@ import com.manisoft.scraprushapp.network.ApiService
 import com.manisoft.scraprushapp.utils.Constants
 import com.manisoft.scraprushapp.utils.KeyValues
 
-class LoginRepository constructor(private val apiService: ApiService) : SafeApiCall {
+class LoginRepository(private val apiService: ApiService) : SafeApiCall {
     suspend fun login(requestBody: LoginRequest) = safeApiCall {
         apiService.login(requestBody)
     }

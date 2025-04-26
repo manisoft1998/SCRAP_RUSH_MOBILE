@@ -7,7 +7,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context=".ui.CompleteProfileActivity">
+    tools:context=".ui.profile.CompleteProfileActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -110,6 +110,7 @@
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
+<!--
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -134,6 +135,7 @@
                 android:textStyle="bold"
                 tools:ignore="SpeakableTextPresentCheck" />
         </com.google.android.material.textfield.TextInputLayout>
+-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_submit"

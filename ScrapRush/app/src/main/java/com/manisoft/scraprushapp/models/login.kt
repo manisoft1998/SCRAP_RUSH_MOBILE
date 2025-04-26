@@ -15,4 +15,10 @@ data class LoginUser(var access_token: String? = "",
                      var id: Int = 0,
                      var image: String? = "",
                      var mobile_number: Long? = 0,
-                     var name: String? = "")
+                     var name: String? = "",
+                     var role: String? = "",
+                     var role_id: Int? = 0)
+
+
+//update fcm token
+data class UpdateFCMTokenRequest(var device_token: String? = "")

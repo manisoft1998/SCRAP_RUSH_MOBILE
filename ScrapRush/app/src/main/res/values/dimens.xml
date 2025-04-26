@@ -8,7 +8,9 @@
     <dimen name="action_bar_text">@dimen/_18ssp</dimen>
     <dimen name="login_caption">@dimen/_25ssp</dimen>
     <dimen name="login_body">@dimen/_11ssp</dimen>
+    <dimen name="order_size">@dimen/_11ssp</dimen>
     <dimen name="menu_size">@dimen/_15ssp</dimen>
     <dimen name="sub_menu_size">@dimen/_9ssp</dimen>
+    <dimen name="bottom_sheet_min_height">90dp</dimen>
 
 </resources>

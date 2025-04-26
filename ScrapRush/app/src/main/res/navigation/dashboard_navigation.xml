@@ -6,12 +6,16 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.manisoft.scraprushapp.ui.DashboardFragment"
+        android:name="com.manisoft.scraprushapp.ui.customer.dashboard.DashboardFragment"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_homeFragment_to_myBookingFragment"
+            app:destination="@id/myBookingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/myAccountFragment"
-        android:name="com.manisoft.scraprushapp.ui.profile.ProfileFragment"
+        android:name="com.manisoft.scraprushapp.ui.customer.profile.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" >
         <action
@@ -20,20 +24,39 @@
         <action
             android:id="@+id/action_myAccountFragment_to_termsAndConditionsFragment"
             app:destination="@id/termsAndConditionsFragment" />
+        <action
+            android:id="@+id/action_myAccountFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+        <action
+            android:id="@+id/action_myAccountFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
     </fragment>
     <fragment
         android:id="@+id/myBookingFragment"
-        android:name="com.manisoft.scraprushapp.ui.MyOrdersFragment"
+        android:name="com.manisoft.scraprushapp.ui.customer.myorders.MyPickupsFragment"
         android:label="fragment_my_orders"
-        tools:layout="@layout/fragment_my_orders" />
+        tools:layout="@layout/fragment_my_pickups" >
+        <action
+            android:id="@+id/action_myBookingFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/termsAndConditionsFragment"
-        android:name="com.manisoft.scraprushapp.ui.profile.termsandconditions.TermsAndConditionsFragment"
+        android:name="com.manisoft.scraprushapp.ui.customer.profile.termsandconditions.TermsAndConditionsFragment"
         android:label="fragment_terms_and_conditions"
         tools:layout="@layout/fragment_terms_and_conditions" />
     <fragment
         android:id="@+id/privacyPolicyFragment"
-        android:name="com.manisoft.scraprushapp.ui.profile.privacypolicy.PrivacyPolicyFragment"
+        android:name="com.manisoft.scraprushapp.ui.customer.profile.privacypolicy.PrivacyPolicyFragment"
         android:label="fragment_privacy_policy"
         tools:layout="@layout/fragment_privacy_policy" />
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.manisoft.scraprushapp.ui.customer.profile.address.AddressFragment"
+        android:label="fragment_address"
+        tools:layout="@layout/fragment_address" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.manisoft.scraprushapp.ui.customer.profile.account.AccountFragment"
+        android:label="AccountFragment" />
 </navigation>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context=".ui.numberverification.NumberVerificationActivity">
+    tools:context=".ui.customer.otpverification.OTPVerificationActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/iv_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
             android:scaleType="centerCrop"
@@ -205,6 +205,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_terms_and_conditions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
@@ -227,6 +228,7 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_privacy_policy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"

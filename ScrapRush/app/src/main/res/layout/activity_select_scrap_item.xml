@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.requestpickup.SelectScrapItemActivity">
+    tools:context=".ui.customer.requestpickup.SelectScrapItemActivity">
 
     <RelativeLayout
         android:id="@+id/rl_header"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="15dp"
         android:gravity="center_vertical">
 
@@ -26,7 +26,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/iv_bacK_icon"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center_vertical"
@@ -35,28 +35,59 @@
             android:textSize="@dimen/action_bar_text" />
     </RelativeLayout>
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_scraps"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/btn_proceed"
+        android:layout_above="@id/cv_delivery_address"
         android:layout_below="@id/rl_header"
-        android:orientation="horizontal"
-        app:spanCount="3"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         tools:listitem="@layout/select_scrap_row_item" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_proceed"
-        android:layout_width="200dp"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+    <include
+        android:id="@+id/cv_delivery_address"
+        layout="@layout/delivery_address_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/rl_proceed"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/primary"
-        android:text="Proceed"
-        android:textAllCaps="false"
-        android:textSize="@dimen/button_text"
-        app:cornerRadius="7dp" />
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_proceed"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/pay_now_top_radius">
+
+        <TextView
+            android:id="@+id/tv_item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="0 item selected"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_proceed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/green_font"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Proceed"
+            android:textAllCaps="false"
+            app:cornerRadius="7dp" />
+    </RelativeLayout>
 </RelativeLayout>

@@ -2,7 +2,20 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="com.google.android.apps.photos.permission.GOOGLE_PHOTOS" />
+
+    <queries>
+        <intent>
+            <action android:name="android.media.action.IMAGE_CAPTURE" />
+        </intent>
+    </queries>
 
     <queries>
         <package android:name="com.whatsapp" />
@@ -18,36 +31,82 @@
         android:networkSecurityConfig="@xml/network_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.ScrapRush"
         tools:targetApi="31">
         <activity
-            android:name=".ui.LocationPickerActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.requestpickup.SelectScrapItemActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.requestpickup.RequestPickupActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.ScrapRateActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.CompleteProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.otpverification.OTPVerificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.numberverification.NumberVerificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.login.LoginActivity"
+            android:name=".ui.admin.scraplist.ScrapListActivity"
             android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.admin.orderdetails.AdminOrderDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.admin.newproduct.NewProductActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.admin.orderlist.AdminOrderListActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.admin.dashboard.AdminDashboardActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.recyclestore.RecycleStoreActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.dashboard.BackDropActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.requestpickup.AttachmentViewActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.myorders.OrderDetailsActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.locationpicker.LocationPickerActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.requestpickup.SelectScrapItemActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.requestpickup.RequestPickupActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.scraprate.ScrapRateActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.profile.CompleteProfileActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.otpverification.OTPVerificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.numberverification.NumberVerificationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.customer.login.LoginActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.ScrapRush" />
         <activity
-            android:name=".ui.splash.SplashActivity"
-            android:exported="true">
+            android:name=".ui.customer.splash.SplashActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -56,11 +115,23 @@
         </activity>
         <activity
             android:name=".ui.MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.manisoft.scraprushapp"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider" />
+        </provider>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCA9ZR1itYfZLbC0_GrmNhiOLgHA5UeRnI" />
+            android:value="@string/google_api_key" />
+
     </application>
 
 </manifest>

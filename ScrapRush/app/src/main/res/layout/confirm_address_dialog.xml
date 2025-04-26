@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/arch_shape_up">
+
+    <RelativeLayout
+        android:id="@+id/rl_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Enter complete address"
+            android:textColor="@color/black_font"
+            android:textSize="@dimen/subtitle"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/baseline_close_24" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_header"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Address type"
+            android:textColor="@color/black_font"
+            android:textSize="@dimen/subtitle"
+            android:textStyle="bold" />
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/switch_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            app:checkedButton="@id/btn_home"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_home"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:backgroundTint="@color/toggle_btn_selector"
+                android:text="Home" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_work"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/toggle_btn_selector"
+                android:text="Work" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_other"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:backgroundTint="@color/toggle_btn_selector"
+                android:text="Other" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <TextView
+            android:id="@+id/tv_other_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Other type"
+            android:textColor="@color/black_font"
+            android:textSize="@dimen/subtitle"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_other_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/bg_radius_dark_layout"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Other type"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textSize="@dimen/input"
+            android:visibility="gone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Mobile number"
+            android:textColor="@color/black_font"
+            android:textSize="@dimen/subtitle"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_mobile_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="2dp"
+            android:background="@drawable/bg_radius_dark_layout"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Mobile number"
+            android:inputType="phone"
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textSize="@dimen/input" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/roboto_regular"
+            android:text="Complete address"
+            android:textColor="@color/black_font"
+            android:textSize="@dimen/subtitle"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_complete_address"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/square_grey_bg"
+            android:fontFamily="@font/roboto_regular"
+            android:gravity="start"
+            android:inputType="textMultiLine"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:textColorHint="@color/divider"
+            android:textSize="@dimen/input" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:text="Cancel"
+                android:textColor="@color/black_font"
+                app:cornerRadius="7dp"
+                app:strokeColor="@color/black_font"
+                app:strokeWidth="0.5dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="3dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/black_font"
+                android:text="Save address"
+                app:cornerRadius="7dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>

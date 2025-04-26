@@ -1,15 +1,21 @@
 package com.manisoft.scraprushapp.utils
 
 import android.app.Activity
+import android.app.Dialog
 import android.content.ContentResolver
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
+import android.os.Build
 import android.provider.OpenableColumns
 import android.text.Editable
+import android.text.Html
 import android.text.TextWatcher
 import android.util.Patterns
+import android.view.LayoutInflater
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
@@ -18,14 +24,24 @@ import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import android.widget.Toast
 import androidx.annotation.StyleRes
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.text.HtmlCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.manisoft.scraprushapp.R
+import com.manisoft.scraprushapp.databinding.OrderSuccessDialogBinding
+import com.manisoft.scraprushapp.ui.customer.login.LoginActivity
+import java.io.File
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.time.format.TextStyle
 import java.util.*
+
 
 fun Fragment.black(): Int {
 //   return ContextCompat.getColor(requireContext(), com.google.android.libraries.places.R.color.quantum_yellow)
@@ -111,45 +127,68 @@ fun Context.shareDeepLink(deepLink: String) {
 }*/
 
 //alert dialog extension
-fun Fragment.showUnAuthAlert(@StyleRes style: Int = 0) {
-    MaterialAlertDialogBuilder(requireContext(), style).apply {
+fun Activity.showUnAuthAlert(@StyleRes style: Int = 0) {
+    MaterialAlertDialogBuilder(this, style).apply {
         setCancelable(false)
         setTitle("Un-Authentication")
         setMessage("Please login or sign-up to continue this app.")
-        positiveButton { }
+        positiveButton { logout() }
         negativeButton { d -> d.dismiss() }
         create()
         show()
     }
 }
 
+fun Fragment.showUnAuthAlert(@StyleRes style: Int = 0) {
+    MaterialAlertDialogBuilder(requireContext(), style).apply {
+        setCancelable(false)
+        setTitle("Un-Authentication")
+        setMessage("Please login or sign-up to continue this app.")
+        positiveButton { logout() }
+        negativeButton { d -> d.dismiss() }
+        create()
+        show()
+    }
+}
+
+fun String.isPhoneNumberValid(): Boolean {
+    // Create a regex pattern to match a phone number with exactly 10 digits
+    val regex = """^\d{10}$""".toRegex()
+
+    // Check if the string matches the regex pattern and if it's a valid phone number according to Android Patterns
+    return matches(regex) && Patterns.PHONE.matcher(this).matches()
+}
+
+fun Fragment.logout() {
+    KeyValues.sharedPreferencesClear()
+    startActivity(Intent(requireActivity(), LoginActivity::class.java))
+    requireActivity().finish()
+}
+
+fun Activity.logout() {
+    KeyValues.sharedPreferencesClear()
+    startActivity(Intent(this, LoginActivity::class.java))
+    finish()
+}
+
 fun MaterialAlertDialogBuilder.negativeButton(text: String = "No", handleClick: (dialogInterface: DialogInterface) -> Unit = { it.dismiss() }) {
     this.setNegativeButton(text) { dialogInterface, _ -> handleClick(dialogInterface) }
+}
+
+fun MaterialAlertDialogBuilder.neutralButton(text: String = "Cancel", handleClick: (dialogInterface: DialogInterface) -> Unit = { it.dismiss() }) {
+    this.setNeutralButton(text) { dialogInterface, _ -> handleClick(dialogInterface) }
 }
 
 fun MaterialAlertDialogBuilder.positiveButton(text: String = "Yes", handleClick: (dialogInterface: DialogInterface) -> Unit = { it.dismiss() }) {
     this.setPositiveButton(text) { dialogInterface, _ -> handleClick(dialogInterface) }
 }
 
-fun Fragment.showGreetings(): String {
-    val date = Date()
-    val cal = Calendar.getInstance()
-    cal.time = date
-    return when (cal.get(Calendar.HOUR_OF_DAY)) {
-        in 0..11 -> "Good Morning"
-        in 12..15 -> "Good Afternoon"
-        in 16..23 -> "Good Evening"
-        else -> "Good Morning"
-    }
-}
-
 fun String.lastMinProductName(): String {
     return if (this.length >= 12) "${this.take(9)}..." else this
 }
 
-fun String.priceFormat(): String {
-    return "₹$this"
-}
+fun String.priceFormat(): String = "₹$this"
+
 
 // text watcher
 fun EditText.onTextChanged(onTextChanged: (String) -> Unit) {
@@ -227,5 +266,61 @@ fun Fragment.shareDeepLink() {
 }
 
 fun sharingContent(): String {
-    return "Download Scrap Rush Today!\n" + "\n" + "Join the Scrap Rush community and be part of the solution to reduce waste and promote sustainable living. Download the app now and start turning your scrap into treasures while making a difference in the world.\n" + "\n" + "Get ready to rush toward a more sustainable future with Scrap Rush!\n" + "\n" + "Install Now: Scrap Rush on Google Play\n" + "https://play.google.com/store/apps/details?id=com.brave.browser&pcampaignid=web_share"
+    return "Download Scrap Rush Today!\n" + "\n" + "Join the Scrap Rush community and be part of the solution to reduce waste and promote sustainable living. Download the app now and start turning your scrap into treasures while making a difference in the world.\n" + "\n" + "Get ready to rush toward a more sustainable future with Scrap Rush!\n" + "\n" + "Install Now: Scrap Rush on Google Play\n" + "https://play.google.com/store/apps/details?id=com.manisoft.scraprushapp&pcampaignid=web_share"
+}
+
+fun String.displayDate(): String {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH)
+        val dateTime = LocalDateTime.parse(this, formatter)
+
+        val ordinalDay = dateTime.dayOfMonth.toString() + when {
+            dateTime.dayOfMonth in 11..13 -> "th"
+            dateTime.dayOfMonth % 10 == 1 -> "st"
+            dateTime.dayOfMonth % 10 == 2 -> "nd"
+            dateTime.dayOfMonth % 10 == 3 -> "rd"
+            else -> "th"
+        }
+
+        val monthName = dateTime.month.getDisplayName(TextStyle.FULL, Locale.ENGLISH)
+        val year = dateTime.year
+        val hourMinute = dateTime.format(DateTimeFormatter.ofPattern("hh:mm a", Locale.ENGLISH))
+
+        return "$ordinalDay $monthName $year $hourMinute"
+    } else {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault())
+        val outputFormat = SimpleDateFormat("dd-MMM-yyyy hh:mm a", Locale.getDefault())
+        val date = inputFormat.parse(this)
+        return outputFormat.format(date)
+    }
+}
+
+fun Activity.showConfirmationDialogue(message: String, onHomeClicked: (Dialog) -> Unit, onMyOrdersClicked: (Dialog) -> Unit) {
+    val factory = LayoutInflater.from(this)
+    val binding = OrderSuccessDialogBinding.inflate(factory)
+    val dialog = AlertDialog.Builder(this).create()
+    dialog.setCancelable(false)
+    dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+    dialog.setView(binding.root)
+
+    binding.animationView.setAnimation(R.raw.success_animation)
+    binding.animationView.playAnimation()
+
+    binding.tvPodContent.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        Html.fromHtml(message, Html.FROM_HTML_MODE_COMPACT)
+    } else {
+        HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY)
+    }
+
+    binding.tvHome.setOnClickListener {
+        onHomeClicked(dialog)
+    }
+    binding.tvMyOrders.setOnClickListener {
+        onMyOrdersClicked(dialog)
+    }
+    dialog.show()
+}
+
+fun String.filePathToUri(): Uri {
+    return Uri.fromFile(File(this))
 }

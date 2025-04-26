@@ -30,6 +30,13 @@ object KeyValues {
         mEditor?.apply()
     }
 
+    @SuppressLint("CommitPrefEdits")
+    fun writeLong(key: String, value: Long) {
+        mEditor = mSharedPreferences?.edit()
+        mEditor?.putLong(key, value)
+        mEditor?.apply()
+    }
+
 
     @SuppressLint("CommitPrefEdits")
     fun writeBoolean(key: String, value: Boolean) {
@@ -45,6 +52,11 @@ object KeyValues {
     fun readInt(key: String, defValue: Int): Int? {
         return mSharedPreferences?.getInt(key, defValue)
     }
+
+    fun readLong(key: String, defValue: Long): Long? {
+        return mSharedPreferences?.getLong(key, defValue)
+    }
+
 
     fun readBoolean(key: String, defValue: Boolean): Boolean? {
         return mSharedPreferences?.getBoolean(key, defValue)

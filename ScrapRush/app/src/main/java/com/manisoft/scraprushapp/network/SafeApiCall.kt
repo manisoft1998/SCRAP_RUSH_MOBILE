@@ -2,6 +2,7 @@ package com.manisoft.scraprushapp.network
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import retrofit2.HttpException
 
 interface SafeApiCall {
     suspend fun <T> safeApiCall(apiCall: suspend () -> T): Resource<T> {
@@ -9,7 +10,15 @@ interface SafeApiCall {
             try {
                 Resource.Success(apiCall.invoke())
             } catch (throwable: Throwable) {
-                Resource.Failure(throwable)
+                when (throwable) {
+                    is HttpException -> {
+                        Resource.Failure(throwable, throwable.code())
+                    }
+
+                    else -> {
+                        Resource.Failure(throwable, null)
+                    }
+                }
             }
         }
     }

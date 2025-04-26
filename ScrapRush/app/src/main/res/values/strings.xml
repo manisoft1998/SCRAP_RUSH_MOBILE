@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">ScrapRush</string>
-    <string name="scraprush"><font color="#FFFFFF">Scrap</font><font color="#2dbb55">Rush</font></string>
-    <string name="scraprushdark"><font color="#000000">Scrap</font><font color="#2dbb55">Rush</font></string>
-    <string name="scraprushwelcome"><font color="#000000">Welcome to Scrap</font><font color="#2dbb55">Rush</font></string>
+    <string name="app_name">Scrap Rush</string>
+    <string name="scraprush"><font color="#FFFFFF">Scrap </font><font color="#2dbb55">Rush</font></string>
+    <string name="scraprushdark"><font color="#000000">Scrap </font><font color="#2dbb55">Rush</font></string>
+    <string name="scraprushwelcome"><font color="#000000">Welcome to Scrap </font><font color="#2dbb55">Rush</font></string>
     <string name="terms_amp_conditions"><u><![CDATA[Terms & Conditions]]></u></string>
     <string name="privacy_policy"><u>Privacy Policy</u></string>
     <string name="resend_otp"><u>Resend OTP</u></string>

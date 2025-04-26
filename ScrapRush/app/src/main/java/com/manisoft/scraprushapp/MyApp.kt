@@ -27,10 +27,10 @@ class MyApp : Application() {
         }
 
         ModelPreferenceManager.init(this@MyApp)
+
         // Setup Places Client
         if (!Places.isInitialized()) {
-            Places.initialize(applicationContext, "AIzaSyBDn6hmk8aVgSJAsw5GcnJ1v7tIpL6n7tc")
+            Places.initialize(applicationContext,"AIzaSyCA9ZR1itYfZLbC0_GrmNhiOLgHA5UeRnI")
         }
-
     }
 }

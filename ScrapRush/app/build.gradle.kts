@@ -17,8 +17,8 @@ android {
         applicationId = "com.manisoft.scraprushapp"
         minSdk = 23
         targetSdk = 34
-        versionCode = 2
-        versionName = "1.0"
+        versionCode = 14
+        versionName = "1.0.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,6 +38,9 @@ android {
     }
     buildFeatures {
         viewBinding = true
+    }
+    buildFeatures {
+        buildConfig = true
     }
 }
 
@@ -98,10 +101,11 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-dynamic-links-ktx")
     implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    implementation("com.google.android.gms:play-services-auth:21.0.0")
     implementation("com.google.firebase:firebase-appcheck-playintegrity")
     implementation("com.google.firebase:firebase-appcheck-ktx")
-    implementation("com.google.firebase:firebase-appcheck-debug:17.0.1")
+    implementation("com.google.firebase:firebase-appcheck-debug:17.1.2")
+    implementation("com.google.firebase:firebase-messaging-ktx:23.4.1")
 
     //avatar progress view
     implementation("xyz.schwaab:avvylib:1.2.0")
@@ -111,4 +115,19 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
     implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
+    //timeline view
+    implementation("com.github.vipulasri:timelineview:1.1.5")
+
+    //Force Update
+    implementation("com.google.android.play:app-update:2.1.0")
+    implementation("com.google.android.play:app-update-ktx:2.1.0")
+
+    //amazon aws s3 lib
+    implementation("com.amazonaws:aws-android-sdk-s3:2.18.0")
+
+    //image compressor
+    implementation("id.zelory:compressor:3.0.1")
+
+    implementation("com.google.android.gms:play-services-auth-api-phone:18.0.2")
+    implementation ("com.google.android.recaptcha:recaptcha:18.4.0")
 }

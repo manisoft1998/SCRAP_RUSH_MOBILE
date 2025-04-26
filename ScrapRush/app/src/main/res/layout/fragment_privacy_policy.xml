@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.profile.privacypolicy.PrivacyPolicyFragment">
+    tools:context=".ui.customer.profile.privacypolicy.PrivacyPolicyFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="15dp"
         android:gravity="center_vertical">
 
@@ -24,8 +24,8 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:layout_toRightOf="@id/iv_bacK_icon"
+            android:layout_marginStart="5dp"
+            android:layout_toEndOf="@id/iv_bacK_icon"
             android:fontFamily="@font/roboto_regular"
             android:gravity="center_vertical"
             android:text="Privacy Policy"
@@ -35,18 +35,11 @@
 
     </RelativeLayout>
 
-    <ScrollView
+    <WebView
+        android:id="@+id/web_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="10dp">
-
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:fontFamily="@font/roboto_regular" />
-    </ScrollView>
+        android:layout_marginBottom="10dp" />
 </LinearLayout>

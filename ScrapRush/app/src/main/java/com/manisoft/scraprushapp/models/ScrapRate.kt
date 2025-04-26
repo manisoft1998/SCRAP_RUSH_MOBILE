@@ -1,5 +1,15 @@
 package com.manisoft.scraprushapp.models
 
-data class ScrapRateResponse(var `data`: List<ScrapRateItems> = arrayListOf(), var message: String?="", var status: Boolean = false)
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-data class ScrapRateItems(var id: Int = 0, var name: String = "", var price: String = "", var variant: String = "")
+data class ScrapRateResponse(var `data`: List<ScrapRateItems> = arrayListOf(), var message: String? = "", var status: Boolean = false)
+
+@Parcelize
+data class ScrapRateItems(var id: Int = 0,
+                          var name: String = "",
+                          var name_tamil: String? = "",
+                          var image: String? = "",
+                          var price: String = "",
+                          var variant_name: String = "",
+                          var isSelected: Boolean = false) : Parcelable

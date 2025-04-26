@@ -10,3 +10,7 @@ interface MultiPermissionCallback {
 interface OnAddressPickedListener{
     fun onAddressPicked(result: GeocodingResult)
 }
+
+interface FileSelectedListener {
+    fun onFileSelected(isImageType: Boolean, filePath: String, fileName: String, isFileProvider: Boolean)
+}

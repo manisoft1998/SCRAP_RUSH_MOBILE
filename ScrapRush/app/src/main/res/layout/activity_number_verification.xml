@@ -17,8 +17,8 @@
 
         <ImageView
             android:id="@+id/iv_icon"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
             android:scaleType="centerCrop"
@@ -152,8 +152,8 @@
             android:layout_below="@id/tv_phone_number_count"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="Send OTP"
             android:enabled="false"
+            android:text="Send OTP"
             android:textAllCaps="false"
             android:textSize="@dimen/button_text"
             app:cornerRadius="7dp" />
@@ -188,6 +188,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_terms_and_conditions"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
@@ -210,6 +211,7 @@
                     android:textStyle="bold" />
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_privacy_policy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"

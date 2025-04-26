@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.ScrapRateActivity">
+    tools:context=".ui.customer.scraprate.ScrapRateActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:layout_marginStart="15dp"
+        android:layout_marginStart="20dp"
         android:layout_marginEnd="15dp"
         android:gravity="center_vertical">
 
@@ -26,7 +26,7 @@
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="5dp"
             android:layout_toEndOf="@id/iv_bacK_icon"
             android:fontFamily="@font/roboto_bold"
             android:gravity="center_vertical"

@@ -8,6 +8,7 @@
     <color name="secondary">#ffffff</color>
 
     <color name="green_font">#2dbb55</color>
+    <color name="red_font">#FF1100</color>
     <color name="dark_green">#2EA534</color>
     <color name="yellow_font">#febf00</color>
     <color name="black_font">#0d1721</color>
@@ -19,6 +20,17 @@
 
     <color name="app_green">#01a66f</color>
 
-    <color name="orange_tick">#FF9800</color>
 
+    <color name="scrap_green">#99FFB6</color>
+    <color name="titan_white">#F7F7FC</color>
+
+    <color name="booking_completed">#D1FFD3</color>
+    <color name="booking_pending">#D1E4FF</color>D1E4FF
+    <color name="booking_cancelled">#FFD9D1</color>
+
+    <color name="green_tick">#2A8B00</color>
+    <color name="pink_tick">#E2206B</color>
+    <color name="blue_tick">#3333B4</color>
+    <color name="orange_tick">#FF9800</color>
+    <color name="not_completed_tick">#D9D9D9</color>
 </resources>

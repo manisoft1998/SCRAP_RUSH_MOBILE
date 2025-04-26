@@ -5,30 +5,28 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.manisoft.scraprushapp.R
-import com.manisoft.scraprushapp.databinding.SelectScrapRowItemBinding
+import com.manisoft.scraprushapp.databinding.SelectedScrapRowItemBinding
 import com.manisoft.scraprushapp.models.ScrapRateItems
-import com.manisoft.scraprushapp.utils.Utils
+import com.manisoft.scraprushapp.utils.priceFormat
 
-class SelectedScrapListAdapter(private var addressList: ArrayList<ScrapRateItems>) : RecyclerView.Adapter<SelectedScrapListAdapter.MyViewHolder>() {
+class SelectedScrapListAdapter(private var scrapList: ArrayList<ScrapRateItems>) : RecyclerView.Adapter<SelectedScrapListAdapter.MyViewHolder>() {
     private var context: Context? = null
 
-    inner class MyViewHolder(var binding: SelectScrapRowItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class MyViewHolder(var binding: SelectedScrapRowItemBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         context = parent.context
-        return MyViewHolder(SelectScrapRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        return MyViewHolder(SelectedScrapRowItemBinding.inflate(LayoutInflater.from(parent.context), parent, false))
     }
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val item = addressList[position]
+        val item = scrapList[position]
         with(holder) {
-            binding.tvScrapPrice.text = item.price
+            binding.tvScrapPrice.text = "${item.price.priceFormat()}/${item.variant_name}"
             binding.tvScrapName.text = item.name
-            Utils.loadAssetImage(context!!, binding.ivScrap, R.drawable.plastic)
         }
     }
 
-    override fun getItemCount(): Int = addressList.size
+    override fun getItemCount(): Int = scrapList.size
 }

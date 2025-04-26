@@ -6,14 +6,24 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <!--    <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animation_view"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+          />-->
+
     <xyz.schwaab.avvylib.AvatarView
         android:id="@+id/progress_view"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_margin="10dp"
-        android:src="@drawable/app_logo"
+        android:src="@drawable/scrap_progress_icon"
         app:avvy_border_color="@color/green_font"
-        app:avvy_border_highlight_color="@color/primary"
+        app:avvy_border_highlight_color="#FFFFFF"
         app:avvy_border_highlight_color_end="@color/green_font"
         app:avvy_border_thickness="10dp"
         app:avvy_border_thickness_highlight="5dp"
@@ -21,5 +31,4 @@
         app:avvy_highlighted="true"
         app:avvy_loading_arches="7"
         app:avvy_loading_arches_degree_area="90" />
-
 </LinearLayout>

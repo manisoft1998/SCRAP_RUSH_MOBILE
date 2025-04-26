@@ -6,10 +6,10 @@
         android:title="Home" />
     <item
         android:id="@+id/myBookingFragment"
-        android:icon="@drawable/ic_baseline_assignment_24"
-        android:title="My Booking" />
+        android:icon="@drawable/my_orders_icon"
+        android:title="My Pickups" />
     <item
         android:id="@+id/myAccountFragment"
         android:icon="@drawable/user"
-        android:title="My Account" />
+        android:title="Profile" />
 </menu>
