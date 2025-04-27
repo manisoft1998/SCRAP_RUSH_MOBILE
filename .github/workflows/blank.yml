@@ -20,20 +20,20 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      # - name: Grant execute permission for gradlew
-      #   run: chmod +x ./gradlew
-
-      # - name: Change wrapper permissions
-      #   run: chmod +x ./gradlew
-      
       - name: Grant execute permission for gradlew
         run: chmod +x ./gradlew
 
       - name: Build with Gradle
         run: ./gradlew assembleDebug
 
+      - name: Rename APK file with Date and Time
+        run: |
+          timestamp=$(date +%Y%m%d_%H%M)
+          mv app/build/outputs/apk/debug/app-debug.apk app/build/outputs/apk/debug/SCRUB_RUSH_${timestamp}.apk
+          echo "APK_NAME=SCRUB_RUSH_${timestamp}.apk" >> $GITHUB_ENV
+
       - name: Upload build outputs (APK)
         uses: actions/upload-artifact@v4
         with:
-          name: debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          name: scrub-rush-debug-apk
+          path: app/build/outputs/apk/debug/${{ env.APK_NAME }}
