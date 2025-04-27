@@ -26,7 +26,7 @@ import com.manisoft.scraprushapp.utils.Constants
 import com.manisoft.scraprushapp.utils.DialogUtils
 import com.manisoft.scraprushapp.utils.FileSelectedListener
 import com.manisoft.scraprushapp.utils.Utils
-import com.manisoft.scraprushapp.utils.amazonutils.AaWaaSaaaaOaaauatahaaaaa
+import com.manisoft.scraprushapp.utils.amazonutils.AWsssssssssssssSOauthsssssss
 import com.manisoft.scraprushapp.utils.attachmentutils.FileChooser
 import com.manisoft.scraprushapp.utils.gone
 import com.manisoft.scraprushapp.utils.showToast
@@ -44,7 +44,7 @@ class ProductUpdateDialog(private val context: Context, appCompatActivity: AppCo
     private var selectedProductId = 0
 
     init {
-        val awsCredentials = BasicAWSCredentials(AaWaaSaaaaOaaauatahaaaaa.AAAAAAAAAaACCESSAAAAAAAAA_IAAAAAD, AaWaaSaaaaOaaauatahaaaaa.ssssSdEdCdRdsfssffsfssfEfTf_fKffEYasdfghjkl)
+        val awsCredentials = BasicAWSCredentials(AWsssssssssssssSOauthsssssss.ACCEsssssSssS_IDasasas, AWsssssssssssssSOauthsssssss.sssssssssss)
         s3Client = AmazonS3Client(awsCredentials, Region.getRegion(Regions.AP_SOUTHEAST_2))
         fileChooser = FileChooser(context, appCompatActivity)
         progressDialog = DialogUtils(appCompatActivity)
@@ -166,12 +166,12 @@ class ProductUpdateDialog(private val context: Context, appCompatActivity: AppCo
         val imageFileName = "${Utils.getTimeStamp()}_${imageFile.name}"
 
         val trans = TransferUtility.builder().context(context).s3Client(s3Client).build()
-        val observer: TransferObserver = trans.upload(AaWaaSaaaaOaaauatahaaaaa.ssssssssssssssssssssBUsCsssKsEsTs_sNsAsMEss, imageFileName, imageFile)//manual storage permission
+        val observer: TransferObserver = trans.upload(AWsssssssssssssSOauthsssssss.ffffffffffff, imageFileName, imageFile)//manual storage permission
         observer.setTransferListener(object : TransferListener {
             @SuppressLint("SetTextI18n")
             override fun onStateChanged(id: Int, state: TransferState) {
                 if (state == TransferState.COMPLETED) {
-                    val url = s3Client.getUrl(AaWaaSaaaaOaaauatahaaaaa.ssssssssssssssssssssBUsCsssKsEsTs_sNsAsMEss, imageFileName)
+                    val url = s3Client.getUrl(AWsssssssssssssSOauthsssssss.ffffffffffff, imageFileName)
 
                     binding.ivDelete.gone()
                     binding.tvAwsName.visible()
